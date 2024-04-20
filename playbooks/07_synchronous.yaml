@@ -1,5 +1,5 @@
 ---
-- name: "No Asynchronous #1"
+- name: "Synchronous #1"
   hosts: nodes[0:2] # 3 nodes
   tasks:
     - name: Task 1
