@@ -1,0 +1,22 @@
+---
+- name: "Linear Strategy"
+  hosts: nodes
+  tasks:
+    - name: Task 1 for Windows
+      command: sleep 5
+      when: simulated_os == "windows"
+
+    - name: Task 2 for Debian
+      command: sleep 5
+      when: simulated_os == "debian"
+
+    - name: Task 3 for Ubuntu
+      command: sleep 5
+      when: simulated_os == "ubuntu"
+
+    - name: Task 4 for CentOS
+      command: sleep 5
+      when: simulated_os == "centos"
+
+    - name: Task 5 for All
+      command: sleep 5

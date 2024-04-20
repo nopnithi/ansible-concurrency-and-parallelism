@@ -1,0 +1,7 @@
+---
+- name: "Serial #1"
+  hosts: nodes[0:7] # 8 nodes
+  serial: 2
+  tasks:
+    - name: Task
+      command: sleep 2

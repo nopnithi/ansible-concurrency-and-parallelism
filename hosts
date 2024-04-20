@@ -1,0 +1,43 @@
+[nodes]
+node01-windows ansible_port=2201
+node02-debian ansible_port=2202
+node03-ubuntu ansible_port=2203
+node04-centos ansible_port=2204 
+node05-windows ansible_port=2205
+node06-debian ansible_port=2206
+node07-ubuntu ansible_port=2207
+node08-centos ansible_port=2208
+
+[nodes:vars]
+ansible_host=localhost  
+ansible_user=root
+ansible_password=nopnithi.com
+ansible_python_interpreter=/usr/local/bin/python3.9
+
+[windows]
+node01-windows
+node05-windows
+
+[debian]
+node02-debian
+node06-debian
+
+[ubuntu]
+node03-ubuntu
+node07-ubuntu  
+
+[centos]
+node04-centos
+node08-centos
+
+[windows:vars]
+simulated_os=windows
+
+[debian:vars]  
+simulated_os=debian
+
+[ubuntu:vars]  
+simulated_os=ubuntu
+
+[centos:vars]
+simulated_os=centos

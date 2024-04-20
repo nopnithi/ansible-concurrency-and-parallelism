@@ -1,0 +1,28 @@
+---
+- name: "Asynchronous #1"
+  hosts: nodes[0:2] # 3 nodes
+  tasks:
+    - name: Task 1
+      command: sleep 30
+      async: 50
+      poll: 0
+      register: result1
+
+    - name: Task 2
+      command: sleep 5
+
+    - name: Task 3
+      command: sleep 5
+
+    - name: Task 4
+      command: sleep 5
+
+    - name: Task 5
+      command: sleep 5
+
+    - name: Check Task 1 Result
+      async_status:
+        jid: "{{ result1.ansible_job_id }}"
+      register: job_result1
+      until: job_result1.finished
+      retries: 30

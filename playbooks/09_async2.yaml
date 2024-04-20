@@ -1,0 +1,59 @@
+---
+- name: "Asynchronous #2"
+  hosts: nodes[0:2] # 3 nodes
+  tasks:
+    - name: Define job_ids List
+      set_fact:
+        job_ids: []
+
+    - name: Task 1
+      command: sleep 10
+      async: 15
+      poll: 0
+      register: result1
+
+    - name: Task 2
+      command: sleep 10
+      async: 15
+      poll: 0
+      register: result2
+
+    - name: Task 3
+      command: sleep 10
+      async: 15
+      poll: 0
+      register: result3
+
+    - name: Task 4
+      command: sleep 10
+      async: 15
+      poll: 0
+      register: result4
+
+    - name: Task 5
+      command: sleep 10
+      async: 15
+      poll: 0
+      register: result5
+
+    - name: Get Job IDs
+      set_fact:
+        job_ids: >
+          {% if item.ansible_job_id is defined -%}
+            {{ job_ids + [item.ansible_job_id] }}
+          {% else -%}
+            {{ job_ids }}
+          {% endif %}
+      with_items: "{{ [ result1, result2, result3, result4, result5 ] }}"
+
+    - name: Show Job IDs
+      debug:
+        msg: "{{ job_ids }}"
+
+    - name: Wait for All Jobs to Finish
+      async_status:
+        jid: "{{ item }}"
+      register: job_result
+      until: job_result.finished
+      retries: 30
+      with_items: "{{ job_ids }}"
