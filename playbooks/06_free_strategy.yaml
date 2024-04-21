@@ -1,6 +1,6 @@
 ---
 - name: "Free Strategy"
-  hosts: nodes
+  hosts: nodes # 8 nodes
   strategy: free
   tasks:
     - name: Task 1 for Windows

@@ -1,6 +1,6 @@
 ---
 - name: "Linear Strategy"
-  hosts: nodes
+  hosts: nodes # 8 nodes
   tasks:
     - name: Task 1 for Windows
       command: sleep 5

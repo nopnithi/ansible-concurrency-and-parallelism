@@ -1,6 +1,6 @@
 ---
 - name: "Serial #2"
-  hosts: nodes[0:7] # 8 nodes
+  hosts: nodes # 8 nodes
   serial:
     - 1
     - 2
