@@ -1,4 +1,4 @@
-# Ansible Concurrency and Parallelism (by nopnithi.com)
+# Ansible Concurrency and Parallelism
 
 This repository contains code materials and examples for the article "[เขียน Ansible Playbook ยังไงให้ทำงานได้เร็วขึ้น?](https://nopnithi.com/posts/how-to-write-ansible-playbooks-to-make-it-run-faster/)" (How to Write Ansible Playbooks to Make It Run Faster?). The article explains various techniques to improve the performance and speed of Ansible playbooks by leveraging concurrency and parallelism.
 
